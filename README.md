@@ -1,6 +1,6 @@
 # Projeto-ADS-2023 - Cadastro de Funcionários
 
-Requisitos 
+Requisitos:
 
 SPRINT 1 - SS01
 O sistema DEVE realizar o cadastro de todos os funcionários e mostrar na tela os dados
