@@ -1,10 +1,12 @@
 import express from "express";
 import cors from "cors";
+import bodyParser from "body-parser";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.post('/login', (req, res) => {
@@ -16,3 +18,13 @@ app.post('/login', (req, res) => {
   res.cookie('token', authToken);
   res.redirect('/dashboard');
 });
+
+app.get('/dashboard', (req, res) => {
+    const { token } = req.cookies;
+  
+    // verificar se o usuário está autenticado
+    // ...
+  
+    res.send('Welcome to the dashboard!');
+  });
+  
