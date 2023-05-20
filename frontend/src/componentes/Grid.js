@@ -66,19 +66,20 @@ const Grid = ({ users, setUsers, setOnEdit }) => {
           <Th>Email</Th>
           <Th onlyWeb>Fone</Th>
           <Th>Cargo</Th>
-          <Th></Th>
+          <Th>Senha</Th>
           <Th></Th>
         </Tr>
       </Thead>
       <Tbody>
         {users.map((item, i) => (
           <Tr key={i}>
-            <Td width="30%">{item.nome}</Td>
-            <Td width="30%">{item.email}</Td>
+            <Td width="25%">{item.nome}</Td>
+            <Td width="25%">{item.email}</Td>
             <Td width="20%" onlyWeb>
               {item.fone}
             </Td>
-            <Td width="30%">{item.cargo}</Td>
+            <Td width="15%">{item.cargo}</Td>
+            <Td width="14%">{item.password}</Td>
             <Td alignCenter width="5%">
               <FaEdit onClick={() => handleEdit(item)} />
             </Td>
