@@ -11,23 +11,24 @@ export const getUsers = (_, res) => {
 };
 
 export const addUser = (req, res) => {
-  const q = "INSERT INTO usuarios(`nome`, `email`, `fone`, `cargo`) VALUES(?)";
+  const q = "INSERT INTO usuarios(`nome`, `email`, `cargo`, `fone`, `password`) VALUES(?)";
 
-  const values = [req.body.nome, req.body.email, req.body.fone, req.body.cargo];
-
+  const values = [req.body.nome, req.body.email, req.body.cargo, req.body.fone, req.body.password];
+  console.log(values);
+  console.log("wlwkewekjwe")
   db.query(q, [values], (err) => {
     if (err) return res.json(err);
-
+    console.log(values);
     return res.status(200).json("Usuário criado com sucesso.");
   });
 };
 
 export const updateUser = (req, res) => {
   const q =
-    "UPDATE usuarios SET `nome` = ?, `email` = ?, `fone` = ?, `cargo` = ? WHERE `id` = ?";
+    "UPDATE usuarios SET `nome` = ?, `email` = ?, `fone` = ?, `cargo` = ?, `password` = ? WHERE `id` = ?";
 
-  const values = [req.body.nome, req.body.email, req.body.fone, req.body.cargo];
-
+  const values = [req.body.nome, req.body.email, req.body.fone, req.body.cargo, req.body.password];
+  console.log(values);
   db.query(q, [...values, req.params.id], (err) => {
     if (err) return res.json(err);
 
