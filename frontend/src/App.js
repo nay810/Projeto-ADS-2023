@@ -1,8 +1,8 @@
 import React from "react";
 import GlobalStyle from "./styles/global";
 import styled from "styled-components";
-import Form from "./componentes/Form.js";
-import Grid from "./componentes/Grid";
+import FormCadastro from './componentes/FormCadastro.js';
+import GridCadastro from "./componentes/GridCadastro.js";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -41,8 +41,8 @@ function App() {
     <>
       <Container>
         <Title>CADASTRO DE FUNCIONÁRIOS</Title>
-        <Form onEdit={onEdit} setOnEdit={setOnEdit} getUsers={getUsers} />
-        <Grid setOnEdit={setOnEdit} users={users} setUsers={setUsers} />
+        <FormCadastro onEdit={onEdit} setOnEdit={setOnEdit} getUsers={getUsers} />
+        <GridCadastro setOnEdit={setOnEdit} users={users} setUsers={setUsers} />
       </Container>
       <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
       <GlobalStyle />
