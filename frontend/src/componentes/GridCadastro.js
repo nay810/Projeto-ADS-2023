@@ -39,15 +39,15 @@ export const Td = styled.td`
   }
 `;
 
-const GridCadastro = ({users, setUsers, setOnEdit}) => {
-  
+const GridCadastro = ({ users, setUsers, setOnEdit }) => {
+
   const handleEdit = (item) => {
     setOnEdit(item);
   };
 
   const handleDelete = async (id) => {
     await axios
-      .delete("http://localhost:8800/" + id)
+      .delete("http://localhost:8800/cadastro" + id)
       .then(({ data }) => {
         const newArray = users.filter((user) => user.id !== id);
 
