@@ -10,10 +10,11 @@ const values = [req.body.email, req.body.password];
         if (err) {
             return res.status(500).json({ error: "Erro ao realizar a consulta no banco de dados." });
         }
-
         if (data.length > 0) {
             res.status(200).json({ message: "Login realizado com sucesso!" });
         } else {
+            console.log("aquii");
+
             res.status(401).json({ error: "Credenciais inválidas!" });
         }
     });

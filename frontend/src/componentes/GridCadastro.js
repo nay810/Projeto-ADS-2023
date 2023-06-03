@@ -39,8 +39,8 @@ export const Td = styled.td`
   }
 `;
 
-const GridCadastro = ({users, setUsers, setOnEdit}) => {
-  
+const GridCadastro = ({ users, setUsers, setOnEdit }) => {
+
   const handleEdit = (item) => {
     setOnEdit(item);
   };
