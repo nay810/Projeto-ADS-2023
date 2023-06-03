@@ -10,14 +10,14 @@ import {validateUser}  from "../controllers/login.js";
 
 const router = express.Router();
 
-router.get("/", getUsers);
+router.get("/cadastro", getUsers);
 
-router.post("/", addUser);
+router.post("/cadastro", addUser);
 
-router.put("/:id", updateUser);
+router.put("/cadastro/:id", updateUser);
 
-router.delete("/:id", deleteUser);
+router.delete("/cadastro/:id", deleteUser);
 
-router.post("/login", validateUser);
+router.post("/", validateUser);
 
 export default router;

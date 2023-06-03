@@ -21,21 +21,21 @@ const Title = styled.h2``;
 function Login() {
 
   const validateUser = async (email, password) => {
+
     try {
-      const response = await axios.post("http://localhost:8800/login", {
+      const response = await axios.post("http://localhost:8800", {
         email: email,
         password: password,
       });
-  
-      if (response.data.valid) {
+      
+      if (response.data.status === 200) {
         return true;
-
       } else {
         return false;
       }
     } catch (error) {
       console.error("Erro ao validar usuário:", error);
-      return false;
+      throw error;
     }
   };
 

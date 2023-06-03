@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { toast } from "react-toastify";
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -42,60 +42,46 @@ const Button = styled.button`
 
 
 const FormLogin = ({validateUser}) => {
-    const ref = useRef();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
 
     const handleLogin = async (e) => {
-
         e.preventDefault();
 
-        const user = ref.current;
-
-        const email = user.email.value;
-        const password = user.password.value;
-        
         if (!email || !password) {
             return toast.warn("Preencha todos os campos!");
         }
-        
-        ref.current.email.value = "";
-        ref.current.password.value = "";
-        
-
-
-
         if (validateUser) {
             try {
                 console.log("Resposta do servidor:");
                 const isValidUser = await validateUser(email, password);
-
-            if (isValidUser) {
-                toast.success("Login bem-sucedido!");
-                // navigate("/"); 
-            } else {
-                toast.error("Credenciais inválidas!");
-            }
+        
+                if (isValidUser) {
+                    toast.success("Login bem-sucedido!");
+                    navigate("/cadastro");
+                } else {
+                    toast.error("Credenciais inválidas!");
+                }
             } catch (error) {
-                toast.error("Erro ao fazer login!");
+            toast.error("Erro ao fazer login!");
             }
         }
-        navigate("/"); 
-        
     };
-
+        
     return (
         <>
-        <FormContainer ref={ref} onSubmit={handleLogin}>
+        <FormContainer onSubmit={handleLogin}>
             <InputArea>
                 <Label>E-mail</Label>
-                <Input name="email" type="email" />
+                <Input name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </InputArea>
             <InputArea>
                 <Label>Senha</Label>
-                <Input name="password" />
+                <Input name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </InputArea>
-
+    
             <Button type="submit">Entrar</Button>
         </FormContainer>
         </>
