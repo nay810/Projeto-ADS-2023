@@ -18,6 +18,8 @@ const Container = styled.div`
 
 const Title = styled.h2``;
 
+const Description = styled.h4``;
+
 function Login() {
 
   const validateUser = async (email, password) => {
@@ -44,6 +46,7 @@ function Login() {
       <Container>
         <Title>LOGIN</Title>
         <FormLogin validateUser={validateUser} />
+        <Description>Caso não tenha cadastro entre em contato com o RH.</Description>
       </Container>
       <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
       <GlobalStyle />
