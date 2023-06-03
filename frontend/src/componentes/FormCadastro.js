@@ -123,7 +123,7 @@ const FormCadastro = ({ getUsers, onEdit, setOnEdit }) => {
       </InputArea>
       <InputArea>
         <Label>Senha</Label>
-        <Input name="password" />
+        <Input name="password" type="password"/>
       </InputArea>
 
       <Button type="submit">SALVAR</Button>
