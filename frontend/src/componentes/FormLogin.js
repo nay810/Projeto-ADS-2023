@@ -41,7 +41,7 @@ const Button = styled.button`
 `;
 
 
-const FormLogin = ({validateUser}) => {
+const FormLogin = ({handleLogins}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -53,19 +53,20 @@ const FormLogin = ({validateUser}) => {
         if (!email || !password) {
             return toast.warn("Preencha todos os campos!");
         }
-        if (validateUser) {
+        if (handleLogins) {
             try {
                 console.log("Resposta do servidor:");
-                const isValidUser = await validateUser(email, password);
+                const isValidUser = await handleLogins(email, password);
         
                 if (isValidUser) {
                     toast.success("Login bem-sucedido!");
                     navigate("/cadastro");
-                } else {
+                }  
+                if(!isValidUser) {
                     toast.error("Credenciais inválidas!");
                 }
             } catch (error) {
-            toast.error("Erro ao fazer login!");
+            toast.error("Erro ao conectar com o banco");
             }
         }
     };
