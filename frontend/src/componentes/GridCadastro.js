@@ -47,7 +47,7 @@ const GridCadastro = ({ users, setUsers, setOnEdit }) => {
 
   const handleDelete = async (id) => {
     await axios
-      .delete("http://localhost:8800/cadastro" + id)
+      .delete("http://localhost:8800/cadastro/" + id)
       .then(({ data }) => {
         const newArray = users.filter((user) => user.id !== id);
 

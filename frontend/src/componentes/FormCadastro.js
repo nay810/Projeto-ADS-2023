@@ -71,7 +71,7 @@ const FormCadastro = ({ getUsers, onEdit, setOnEdit }) => {
 
     if (onEdit) {
       await axios
-        .put("http://localhost:8800/cadastro" + onEdit.id, {
+        .put("http://localhost:8800/cadastro/" + onEdit.id, {
           nome: user.nome.value,
           email: user.email.value,
           fone: user.fone.value,
