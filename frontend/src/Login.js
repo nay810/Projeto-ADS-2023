@@ -34,7 +34,6 @@ function Login() {
       const response = await validateUser(email, password);
   
       if (response.data.status === 200) {
-        console.log(response.data.status);
         return true;
       }
     } catch (error) {
